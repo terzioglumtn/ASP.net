@@ -1,0 +1,120 @@
+﻿ <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="RentACar.main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="CSS.css" />
+    <link rel="shortcut icon" href="resimler/logoo.ico" />
+
+    <style type="text/css">
+        .tıkla {
+            width: 750px;
+            height: 45px;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+         <div class="banner">
+            <div class="banner-binlik">
+             <div class="banner-sol">
+                 <a href="HomePage.aspx"><asp:Image ID="Image1" runat="server" Height="150px" ImageUrl="~/images/logon.png" Width="250px" /></a>
+                </div>  
+                <div class="banner-sağ">
+                    <div class="banner-ss"><font color="white" face="tahoma" size="4px" style="font-size: x-large">METİN RENT A CAR</font></div>
+                    <asp:Image ID="Image2" runat="server" Height="25px" ImageUrl="~/images/phone-512.png" Width="37px" />
+                    <font color="white">+90 212 </font><font size="5px"><bold>254 28 67</bold></font>
+                    </div>
+                    <div class="tıkla">
+                        <a href="HomePage.aspx" style="color:black"><div class="menu-tab">ANA SAYFA</div></a>
+                        <a href="AboutPage.aspx" style="color:black"><div class="menu-tab">HAKKIMIZDA</div></a>
+                        <a href="Cars.aspx" style="color:black"><div class="menu-tab">ARABALARIMIZ</div></a>
+                        <a href="Contact.aspx" style="color:black"><div class="menu-tab">İLETİŞİM</div></a>
+                    </div>
+                
+            </div>
+        </div>
+        <br />
+        <div class="icerik">
+            <div class="icerik-sol">
+                <div class="kayıt">
+                    <asp:Panel ID="pnlGiris"  runat="server">
+                    <div class="ust">
+                        Giriş Yap
+                    </div>
+                    <div class="alt">
+                        <span>Kullanıcı Adı</span>
+                        <asp:TextBox ID="txtkullanici" CssClass="txt" runat="server"></asp:TextBox>
+                        <br />
+                        <span>Şifre</span><br />
+                        <asp:TextBox ID="txtsifre" TextMode="Password" CssClass="txt" runat="server"></asp:TextBox>
+                        <a href="Kayıt.aspx" class="btnkayıt">Kayıt OL</a>
+                        <asp:Button ID="btnGiris" CssClass="btnGiris" Text="Giriş" runat="server" OnClick="btnGiris_Click" />
+                        <asp:Label ID="lblkayıt" runat="server" Text=""></asp:Label>
+                    </div>
+                        </asp:Panel>
+                    <asp:Panel ID="pnlKullanici" CssClass="pnlKullanici" runat="server">
+                        Giriş Yapıldı, <asp:Label ID="lblKullaniciAdi" Text="" runat="server" />                 
+                        <asp:Button ID="btnCıkıs" CssClass="btnCıkıs" runat ="server" Text="ÇIKIŞ" OnClick="btnCıkıs_Click" />
+                        <asp:Button ID="btnRez" CssClass="btnRez" runat="server" Text="REZERVASYON" OnClick="btnRez_Click" />
+                    </asp:Panel>
+                </div>
+                <%--<asp:Image ID="Image3" runat="server" Height="300px" ImageUrl="~/images/ilktabela.jpg" Width="250px" />--%>
+            
+                <div class="yorumlar">
+                    <div class="ust">
+                        Yorumlar
+                    </div>
+                    <div class="alt">
+                        <asp:ListView ID="lstYorum" runat="server">
+                            <ItemTemplate>
+                                <asp:Label Text='<%#Eval("Yorum") %>'  runat="server"></asp:Label><br />
+                                <asp:Label ID="Label1" runat="server" Text="------------------------------------"></asp:Label><br />
+                            </ItemTemplate>
+                        </asp:ListView>
+                        <div class="yorumlar-wrap">
+                            
+  
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="icerik-sag" style="overflow:auto;-webkit-overflow-scrolling:touch">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    <iframe name="cerceve" style="width: 730px; height: 430px; margin-left: 6px;" src="1.html"></iframe>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="sag-tık" style="background-image:url(images/back.jpg)">
+                    <a href="1.html" target="cerceve" style="color:black"><div class="st">1</div></a>
+                    <a href="2.html" target="cerceve" style="color:black"><div class="st">2</div></a>
+                    <a href="3.html" target="cerceve" style="color:black"><div class="st">3</div></a>
+                    <a href="4.html" target="cerceve" style="color:black"><div class="st">4</div></a>
+                    <a href="5.html" target="cerceve" style="color:black"><div class="st">5</div></a>
+                </div>
+                </asp:ContentPlaceHolder>
+               
+            </div>
+            <div class="temizle"></div>
+        </div>
+        <div style="width:1000px;height:102px; background-color:#dcddc7;margin:5px auto 0px auto">
+            <div style="width:350px;height:120px;float:left;text-align:center">
+                <div style="width:350px;height:25px; margin-top: 16px;">0212 254 28 67</div>
+                <div style="width:350px;height:26px;">0533 164 00 67</div>
+                <div style="width:350px;height:22px;">0549 164 00 67</div>
+            </div>
+            <div style="width:650px;height:120px;float:right"><div style="text-align:center; width: 590px; margin-left: 20px; margin-top: 18px;"><pre style="width: 588px; height: 65px;"><font face="calibri">    Tümsan Sanayi Sitesi Tunç İş Merkezi 
+     No:3/120 3.Kat Başakşehir/İSTANBUL</font></pre></div></div>
+                
+        </div>
+            
+        
+    </form>
+</body>
+</html>
